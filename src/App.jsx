@@ -1,28 +1,34 @@
-import { ChakraProvider } from '@chakra-ui/react'
-import ComponenteA from './components/ComponenteA'
+import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Inicio from './components/Inicio'
 import ItemListContainer from './components/ItemListContainer'
 import NavBar from './components/NavBar'
+import Footer from './components/Footer'
 
 
-const App=()=> {
 
+
+const App = () => {
+ 
   return (
-    <div className="App">
-      
-      <ChakraProvider>
-        
+
+    <BrowserRouter>
+  
       <NavBar/>
-      <ComponenteA/>
+    <Routes>
 
-      <ItemListContainer greeting={"Bienvenidos a mi Tienda Online"}/>
-
-
-      </ChakraProvider>
+     <Route exact path ="/" element= {<Inicio/>}/>
+     <Route exact path ="/ItemListContainer" element={<ItemListContainer/>}/>
+      
+    </Routes>
       
       
-      </div>
+      <Footer/>
 
-
+    </BrowserRouter>
+    
+      
+    
   )
 }
 

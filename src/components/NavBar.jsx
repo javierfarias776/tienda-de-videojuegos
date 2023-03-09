@@ -1,57 +1,33 @@
 import React from 'react'
-import { Avatar} from '@chakra-ui/react'
-import { Wrap, WrapItem, Center,Tabs, TabList, TabPanels, Tab, TabPanel, Flex, Spacer } from '@chakra-ui/react'
-
+import { Link } from 'react-router-dom'
 import CartWidget from './CartWidget'
 
 const NavBar = () => {
   return (
-    <div>
-            <Wrap>
-  <WrapItem>
-    
-    <Avatar size='lg' name='control animado' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcKqjjYq5PSsKnOnG6Lfng6YArNgTQ6zsmWw&usqp=CAU' />{''}
-    <h1>Tienda de videojuegos</h1>
-
-  </WrapItem>
-  <Spacer/>
-  <WrapItem>
-    
-    <Tabs>
-  <TabList w='200px'>
-    <Tab>One</Tab>
-    <Tab>Two</Tab>
-    
-  </TabList>
-
-  <TabPanels>
-    <TabPanel>
-      <p>one!</p>
-    </TabPanel>
-    <TabPanel>
-      <p>two!</p>
-    </TabPanel>
-    
-  </TabPanels>
-</Tabs>
-
-  </WrapItem>
-  <Spacer/>
-  
-  <WrapItem>
-    <Center w='180px' h='80px'>
-      <CartWidget/>
-    </Center>
-  </WrapItem>
-  
-</Wrap>
-    
-
-  
-
-    
-    
+    <nav className="navbar navbar-expand-lg bg-white">
+  <div className="container-fluid">
+    <Link to="/">
+      <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOOhGZGdtW7UfZdBnvykM8af0hwe1eFQUH0g&usqp=CAU' width="70" height="70"/>
+    </Link>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div className="collapse navbar-collapse" id="navbarNav">
+      <ul className="navbar-nav mx-auto">
+        <li className="nav-item">
+          <Link className="nav-link" to="/">Inicio</Link>
+        </li>
+        
+        <li className="nav-item">
+          <Link className="nav-link" to="/ItemListContainer">Catalogo</Link>
+        </li>
+        
+      </ul>
     </div>
+    <CartWidget/>
+  </div>
+</nav>
+
   )
 }
 
