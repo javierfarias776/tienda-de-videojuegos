@@ -14,6 +14,8 @@ const ItemList = ({data}) => {
             desc={juego.description}
             precio={juego.precio}
             img={juego.img}
+            categoria={juego.categoria}
+            stock={juego.stock}
           />
         ))}
       

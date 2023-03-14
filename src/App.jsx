@@ -8,24 +8,30 @@ import Footer from './components/Footer'
 
 
 
+
 const App = () => {
  
   return (
-
-    <BrowserRouter>
+ 
   
-      <NavBar/>
-    <Routes>
 
-     <Route exact path ="/" element= {<Inicio/>}/>
-     <Route exact path ="/ItemListContainer" element={<ItemListContainer/>}/>
-      
-    </Routes>
-      
-      
-      <Footer/>
+      <BrowserRouter>
+  
+          <NavBar/>
+            <Routes>
 
-    </BrowserRouter>
+              <Route exact path ="/" element= {<Inicio />}/>
+              <Route exact path ="/catalogo" element={<ItemListContainer />}/>
+              <Route exact path ="/categoria/:categoria" element={<ItemListContainer />}/>
+     
+      
+            </Routes>
+      
+      
+          <Footer/>
+
+      </BrowserRouter>
+    
     
       
     

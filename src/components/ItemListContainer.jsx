@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import ItemList from "./ItemList";
 import Data from "../data.json"
+import { useParams } from 'react-router-dom';
 
 
 const ItemListContainer = () => {
@@ -14,17 +15,25 @@ const ItemListContainer = () => {
     
         setTimeout(()=>{
           resolve (Data);
-        }, 3000);
+        }, 1000);
       });
   const gamesData= getData.then((response) => setGame(response))
   
-  }, [])
+  }, []);
 
-  return (
-    <div>
-      <ItemList data={game}/>
+  
+    const {categoria} = useParams;
+    console.log (categoria)
+    
+    const catFilter=Data.filter((data)=> data.categoria === categoria);
+    
+    return (
+      <div>
+  
+      {categoria ? <ItemList game={catFilter}/> :<ItemList game={Data}/>}
     </div>
   )
 }
+
 
 export default ItemListContainer
