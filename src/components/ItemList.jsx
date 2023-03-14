@@ -17,8 +17,7 @@ const ItemList = ({game}) => {
             categoria={juego.categoria}
             stock={juego.stock}
           />
-        ))}
-      
+        ))}      
       </Container>
     </div>
   );

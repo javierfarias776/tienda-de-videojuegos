@@ -15,14 +15,14 @@ import { Link } from "react-router-dom";
 
 
 
-const Item = ({ id, nombre, desc, img, categoria, stock }) => {
+const Item = ({ id, nombre, desc, precio, img, categoria, stock }) => {
   return (
     <div>
       <div key={id}>
         <Center p="1rem">
           <Card className="card-main">
             <CardBody>
-              <Image borderRadius="lg" src={img}htmlHeight={180} />
+              <Image borderRadius="lg" src={"../" + img} htmlHeight={180} />
               <Stack mt="6" spacing="3">
                 <Heading size="md">{nombre}</Heading>
                 <Text color="blue.800" fontSize="l">
@@ -31,7 +31,6 @@ const Item = ({ id, nombre, desc, img, categoria, stock }) => {
                 <Text color="red.600" fontSize="xl">
                   stock: {stock}
                 </Text>
-
                 <Text color="red.600" fontSize="xl">
                   Desc: {desc}
                 </Text>

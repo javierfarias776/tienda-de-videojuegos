@@ -1,8 +1,9 @@
 import React from 'react'
+import ItemDetail from './ItemDetail'
 
 const ItemDetailContainer = () => {
   return (
-    <ItemDetail game= {data} />
+    <ItemDetail />
   )
 }
 
