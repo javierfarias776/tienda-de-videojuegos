@@ -19,14 +19,14 @@ const NavBar = () => {
         </li>
         
         <li className="nav-item">
-          <Link className="nav-link" to="/ItemListContainer">Catalogo</Link>
+          <Link className="nav-link" to="/catalogo">Catalogo</Link>
         </li>
         <li className="nav-item dropdown">
-    <Link className="nav-link dropdown-toggle" data-bs-toggle="dropdown" to="/ItemListContainer" role="button" aria-expanded="false">Categorias</Link>
+    <Link className="nav-link dropdown-toggle" data-bs-toggle="dropdown" to="/categoria" role="button" aria-expanded="false">Categorias</Link>
     <ul className="dropdown-menu">
-      <li><Link className="dropdown-item" to="/categoria/${'action'}">Action</Link></li>
-      <li><Link className="dropdown-item" to="/categoria/${'aventura'}">Aventura</Link></li>
-      <li><Link className="dropdown-item" to="/categoria/${'deportes'}">Deportes</Link></li>
+      <li><Link className="dropdown-item" to="/categoria/accion">Accion</Link></li>
+      <li><Link className="dropdown-item" to="/categoria/aventura">Aventura</Link></li>
+      <li><Link className="dropdown-item" to="/categoria/deportes">Deportes</Link></li>
     </ul>
   </li>
         

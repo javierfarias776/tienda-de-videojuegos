@@ -1,12 +1,12 @@
 import Item from "./Item";
 import { Container } from "@chakra-ui/react";
 
-const ItemList = ({data}) => {
+const ItemList = ({game}) => {
   
   return (
   <>
       <Container className="main-catalogue">
-        {data?.map((juego) => (
+        {game?.map((juego) => (
           <Item
             key={juego.id}
             id={juego.id}
@@ -17,8 +17,7 @@ const ItemList = ({data}) => {
             categoria={juego.categoria}
             stock={juego.stock}
           />
-        ))}
-      
+        ))}      
       </Container>
     </>
   );
