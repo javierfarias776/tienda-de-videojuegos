@@ -17,9 +17,9 @@ import {
   
   const ItemDetail = () => {
     const { id } = useParams();
-    console.log(id);
+    
     const producto = productos.find(juego => juego.id === parseInt(id));
-    console.log(producto);
+  
 
     return (
       <>
@@ -41,7 +41,7 @@ import {
                     Stock: {producto.stock}
                   </Text>
                   <Text color="green.600" fontSize="xl">
-                    Precio: U$D {producto.price}
+                    Precio: U$D {producto.precio}
                   </Text>
                 </Stack>
               </CardBody>
@@ -50,8 +50,8 @@ import {
                 <ItemCount
                   stock={producto.stock}
                   id={producto.id}
-                  price={producto.price}
-                  name={producto.name}
+                  precio={producto.precio}
+                  nombre={producto.nombre}
                 />
               </CardFooter>
             </Card>

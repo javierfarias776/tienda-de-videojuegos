@@ -1,11 +1,13 @@
 import React from 'react'
+import CartWidget from './CartWidget'
 
-const ItemCount = ({ stock, id, price, name }) => {
+const ItemCount = ({ stock, id, precio, nombre }) => {
   return (
     <>
-      <h1>Item {name}</h1>
-      <p>stock: {stock}</p>
-      <p>Price: {price}</p>
+      <h2> {nombre}</h2>
+     <br/>
+     <button onclick="agregarProducto (${id})" className= "btn btn-primary">Agregar a Carrito </button>
+  
     </>
   )
 }
