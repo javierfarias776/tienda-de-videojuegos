@@ -7,7 +7,7 @@
     "desc": "Fantasia, Accion, Mundo Abierto.",
     "precio": 25600,
     "img": "img/gow.jpeg",
-    "categoria": "Accion",
+    "categoria": "accion",
     "stock": 10
      },
 
@@ -17,8 +17,8 @@
         "cantidad": 1,
         "desc": "Violecia, Accion, Fantasia.",
         "precio": 16300,
-        "img":"img/mK2.jpg",
-        "categoria":"Accion",
+        "img":"img/mk2.jpg",
+        "categoria":"accion",
         "stock": 10
     },
 
@@ -29,7 +29,7 @@
         "desc": "Survival, Suspense, Terror.",
         "precio": 22100,
         "img":"img/theLastOfUs.jpg",
-        "categoria":"Accion",
+        "categoria":"accion",
         "stock": 10
         
     },
@@ -41,6 +41,7 @@
         "desc": "juego de guerra, Accion, Aventura.",
         "precio": 15700,
         "img":"img/cod.jpg",
+        "categoria":"accion",
         "stock": 10
     },
 
@@ -51,7 +52,7 @@
         "desc": "Accion, aventura, Mundo libre.",
         "precio": 15700,
         "img":"img/3.jpg",
-        "categoria":"Aventura",
+        "categoria":"aventura",
         "stock": 10
     },
 
@@ -62,7 +63,7 @@
         "desc": "Terror, Suspense, Eleccion libre.",
         "precio": 10600,
         "img":"img/untilDawn.jpg",
-        "categoria":"Suspense",
+        "categoria":"suspense",
         "stock": 10
 
     },
@@ -73,7 +74,7 @@
         "desc": "Juego deportivo, futbol.",
         "precio": 13200,
         "img":"img/fifa.jpg",
-        "categoria":"Deporte",
+        "categoria":"deporte",
         "stock": 10
     },
     {
@@ -83,7 +84,7 @@
         "desc": "Juego de autos, Aventura, Mundo libre.",
         "precio": 18000,
         "img":"img/forza.jpg",
-        "categoria":"Deporte",
+        "categoria":"deporte",
         "stock": 10
     },
     {
@@ -93,7 +94,7 @@
         "desc": "Survival, Suspense, Accion.",
         "precio": 20600,
         "img":"img/residentEvil.jpg",
-        "categoria":"Suspense",
+        "categoria":"accion",
         "stock": 10
     },
     {
@@ -103,7 +104,7 @@
         "desc": "Accion, Aventura, Mundo libre.",
         "precio": 19000,
         "img":"img/batman2.jpg",
-        "categoria":"Aventura",
+        "categoria":"aventura",
         "stock": 10
     },
     {
@@ -113,7 +114,7 @@
         "desc": "Mundo libre, Accion, Aventura.",
         "precio": 25600,
         "img":"img/gta2.jpg",
-        "categoria":"Accion",
+        "categoria":"accion",
         "stock": 10
     },
     {
@@ -123,7 +124,7 @@
         "desc": "Accion, Fantasia, Aventura.",
         "precio": 22600,
         "img":"img/uncharted.jpeg",
-        "categoria":"Aventura",
+        "categoria":"aventura",
         "stock": 10
     }
 ]

@@ -23,7 +23,7 @@ const ItemListContainer = () => {
 
   
     const {categoria} = useParams;
-    console.log (categoria)
+  
     
     const catFilter=Data.filter((data)=> data.categoria === categoria);
     

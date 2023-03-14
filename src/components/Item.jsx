@@ -15,18 +15,18 @@ import { Link } from "react-router-dom";
 
 
 
-const Item = ({ id, nombre, desc, img }) => {
+const Item = ({ id, nombre, desc, img, categoria, stock }) => {
   return (
     <div>
       <div key={id}>
         <Center p="1rem">
           <Card className="card-main">
             <CardBody>
-              <Image borderRadius="lg" src={img} />
+              <Image borderRadius="lg" src={img}htmlHeight={180} />
               <Stack mt="6" spacing="3">
                 <Heading size="md">{nombre}</Heading>
                 <Text color="blue.800" fontSize="l">
-                  Categora: {categoria}
+                  Categoria: {categoria}
                 </Text>
                 <Text color="red.600" fontSize="xl">
                   stock: {stock}
@@ -40,7 +40,7 @@ const Item = ({ id, nombre, desc, img }) => {
             <Divider />
             <CardFooter className="card-footer">
               <Center className="btn-center">
-                <Button variant="solid" colorScheme="blue">
+                <Button>
                   <Link to={`/item/${id}`}>Detalles</Link>
                 </Button>
               </Center>

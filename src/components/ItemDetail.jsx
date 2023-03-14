@@ -1,18 +1,18 @@
 import {
-    Center,
-    Card,
-    CardBody,
-    Image,
-    Stack,
-    Heading,
-    Text,
-    CardFooter,
-    Divider,
-  } from "@chakra-ui/react";
+  Center,
+  Card,
+  CardBody,
+  Image,
+  Stack,
+  Heading,
+  Text,
+  CardFooter,
+  Divider,
+} from "@chakra-ui/react";
+
   import { useParams } from "react-router-dom";
-  
   import { useState } from "react";
-  const ItemDetail = ({ data }) => {
+  const ItemDetail = ({ Data }) => {
     const { id } = useParams();
   
     const [producto, setProducto] = useState([]);
@@ -29,7 +29,7 @@ import {
                 <CardBody>
                   <Image borderRadius="lg" src={juego.img} />
                   <Stack mt="6" spacing="3">
-                    <Heading size="md">{juego.name}</Heading>
+                    <Heading size="md">{juego.nombre}</Heading>
                     <Text color="blue.800" fontSize="l">
                       Desc: {juego.desc}
                     </Text>
@@ -40,18 +40,13 @@ import {
                       Stock: {juego.stock}
                     </Text>
                     <Text color="green.600" fontSize="xl">
-                      Precio: U$D {juego.price}
+                      Precio: U$D {juego.precio}
                     </Text>
                   </Stack>
                 </CardBody>
                 <Divider />
                 <CardFooter className="card-footer">
-                  <ItemCount
-                    stock={juego.stock}
-                    id={juego.id}
-                    price={juego.price}
-                    name={juego.name}
-                  />
+                 <button>agregar</button>
                 </CardFooter>
               </Card>
             </Center>
