@@ -5,8 +5,8 @@ const ItemCount = ({ stock, id, precio, nombre }) => {
   return (
     <>
       <h2> {nombre}</h2>
-     <br/>
-     <button onclick="agregarProducto (${id})" className= "btn btn-primary">Agregar a Carrito </button>
+  
+     <button className= "btn btn-primary">Agregar a Carrito </button>
   
     </>
   )

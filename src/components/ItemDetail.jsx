@@ -24,7 +24,6 @@ import {
     return (
       <>
         <div>
-          <p></p>
           <Center p="1rem">
             <Card className="card-main">
               <CardBody>
