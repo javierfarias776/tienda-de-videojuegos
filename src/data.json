@@ -90,7 +90,7 @@
         "id":9,
         "nombre":"Resident Evil 2 (Remake)", 
         "cantidad": 1,
-        "desc": "Accion, Suspense.",
+        "desc": "Accion, Suspense, survivel.",
         "precio": 20600,
         "img":"img/residentEvil.jpg",
         "categoria":"accion",

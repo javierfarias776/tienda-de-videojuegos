@@ -1,9 +1,10 @@
 body{
-    background-color: black;
+    background-color: aliceblue;
     margin: auto;
+    padding: 1%;
 }
 
-.main-catalogue{
+.catalogo{
     padding: 5%;
     background-color: aliceblue;
     margin-bottom: 20px;

@@ -5,7 +5,7 @@ const ItemList = ({game}) => {
   
   return (
   <div>
-      <Container className="main-catalogue">
+      <Container className="catalogo">
         {game?.map((juego) => (
           <Item
             key={juego.id}

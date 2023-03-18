@@ -1,11 +1,13 @@
 import { ChakraProvider, Card, CardBody, Image, Stack, Heading, Text, Divider, CardFooter, ButtonGroup, Button, Center } from '@chakra-ui/react'
-
+   import{useContext} from "react"
+   import { CounterContext } from '../context/StateComponents';
   import { useParams } from "react-router-dom";
   import React from "react";
   import productos from '../data.json';
 
   
   const ItemDetail = () => {
+    const{ increment, decrement, reset, counter } = useContext(CounterContext);
     const { id } = useParams();
     
     const producto = productos.find(juego => juego.id === parseInt(id));
@@ -39,17 +41,20 @@ import { ChakraProvider, Card, CardBody, Image, Stack, Heading, Text, Divider, C
               <Divider />
                   <CardFooter>
 
-                    <ButtonGroup spacing='20'>
-                      <Button variant='solid' colorScheme='blue'>
+                    <ButtonGroup spacing='19.5'>
+                      <Button onClick={() => decrement()} variant='solid' colorScheme='blue'>
                         -
                       </Button>
                     
-                      <Button variant='ghost' colorScheme='blue'>
-                        Add to cart
+                      <Button  variant='ghost' colorScheme='blue'>
+                        Add to cart + {counter}
                       </Button>
                     
-                      <Button variant='solid' colorScheme='blue'>
+                      <Button onClick={() => increment()} variant='solid' colorScheme='blue'>
                         +
+                      </Button>
+                      <Button onClick={() => reset()} variant='solid' colorScheme='blue'>
+                        Reset
                       </Button>
                     </ButtonGroup>
                   </CardFooter>
