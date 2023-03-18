@@ -6,9 +6,13 @@ import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import ItemDetail from './components/ItemDetail'
 
+
+
 const App = () => {
  
   return (
+    
+    
  
     <BrowserRouter>
         <NavBar/>
@@ -17,9 +21,11 @@ const App = () => {
             <Route exact path ="/catalogo" element={<ItemListContainer />}/>
             <Route exact path ="/categoria/:categoria" element={<ItemListContainer />}/>
             <Route exact path ="/item/:id" element={<ItemDetail />}/>
+            
           </Routes>
         <Footer/>
     </BrowserRouter>
+  
   )
 }
 

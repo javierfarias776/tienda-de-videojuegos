@@ -4,15 +4,54 @@ body{
 }
 
 .main-catalogue{
+    padding: 5%;
     background-color: aliceblue;
-    padding: 2%;
+    margin-bottom: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    row-gap: 30px;
     flex-wrap: wrap;
+    
 }
-.card-main{
+.Center{
     background-color: aliceblue;
-    margin: 1rem;
+}
+
+
+.redes-container{
+    display: flex;
+    height: 20vh;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.redes-container ul li{
+    display: inline-block;
+    margin: 0 5px;
+    width: 50px;
+    text-align: center;
+}
+
+.redes-container ul li a{
+    display: block;
+    padding: 0 10px;
+    background: black;
+    color: white;
+    line-height: 50px;
+    font-size: 18px;
+    box-shadow: 0 3px 5px 0 black;
+    transition: .2s;
+
+}
+.redes-container ul:hover a{
+    filter:blur(2px)
+}
+
+.redes-container ul li a:hover{
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 5px 5px 0px black;
+    filter: none;
 }
 
 

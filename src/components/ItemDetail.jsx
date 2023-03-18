@@ -1,19 +1,9 @@
-import {
-  Center,
-  Card,
-  CardBody,
-  Image,
-  Stack,
-  Heading,
-  Text,
-  CardFooter,
-  Divider,
-} from "@chakra-ui/react";
+import { ChakraProvider, Card, CardBody, Image, Stack, Heading, Text, Divider, CardFooter, ButtonGroup, Button, Center } from '@chakra-ui/react'
 
   import { useParams } from "react-router-dom";
   import React from "react";
   import productos from '../data.json';
-  import ItemCount from './ItemCount'
+
   
   const ItemDetail = () => {
     const { id } = useParams();
@@ -22,14 +12,16 @@ import {
   
 
     return (
-      <>
-        <div>
-          <Center p="1rem">
-            <Card className="card-main">
+      <ChakraProvider>
+
+        
+          <Center>
+
+            <Card maxW="sm">
               <CardBody>
-                <Image borderRadius="lg" src={"../" + producto.img} />
-                <Stack mt="6" spacing="3">
-                  <Heading size="md">{producto.name}</Heading>
+                <Image borderRadius='lg' src={"../" + producto.img} />
+                <Stack mt='6' spacing='3'>
+                  <Heading size='md'>{producto.nombre}</Heading>
                   <Text color="blue.800" fontSize="l">
                     Desc: {producto.desc}
                   </Text>
@@ -39,26 +31,38 @@ import {
                   <Text color="red.600" fontSize="xl">
                     Stock: {producto.stock}
                   </Text>
-                  <Text color="green.600" fontSize="xl">
+                  <Text color="green.600" fontSize="2xl">
                     Precio: U$D {producto.precio}
                   </Text>
                 </Stack>
               </CardBody>
               <Divider />
-              <CardFooter className="card-footer">
-                <ItemCount
-                  stock={producto.stock}
-                  id={producto.id}
-                  precio={producto.precio}
-                  nombre={producto.nombre}
-                />
-              </CardFooter>
+                  <CardFooter>
+
+                    <ButtonGroup spacing='20'>
+                      <Button variant='solid' colorScheme='blue'>
+                        -
+                      </Button>
+                    
+                      <Button variant='ghost' colorScheme='blue'>
+                        Add to cart
+                      </Button>
+                    
+                      <Button variant='solid' colorScheme='blue'>
+                        +
+                      </Button>
+                    </ButtonGroup>
+                  </CardFooter>
+              
+              
             </Card>
           </Center>
-        </div>
-      </>
+          
+        
+            </ChakraProvider>
+      
     );
-
+    
   }
   
   export default ItemDetail;

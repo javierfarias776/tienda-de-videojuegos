@@ -4,9 +4,9 @@ import CartWidget from './CartWidget'
 const ItemCount = ({ stock, id, precio, nombre }) => {
   return (
     <>
-      <h2> {nombre}</h2>
+    
   
-     <button className= "btn btn-primary">Agregar a Carrito </button>
+     <button className= "btn btn-primary center">Agregar a Carrito </button>
   
     </>
   )

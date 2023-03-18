@@ -1,5 +1,5 @@
 import React from "react";
-import {
+import {ChakraProvider,
   Center,
   Card,
   CardBody,
@@ -17,21 +17,23 @@ import { Link } from "react-router-dom";
 
 const Item = ({ id, nombre, desc, precio, img, categoria, stock }) => {
   return (
+    <ChakraProvider>
+
     <div>
       <div key={id}>
-        <Center p="1rem">
-          <Card className="card-main">
+        
+          <Card maxW="xs">
             <CardBody>
-              <Image borderRadius="lg" src={"../" + img} htmlHeight={180} />
+              <Image borderRadius="lg" src={"../" + img}/>
               <Stack mt="6" spacing="3">
                 <Heading size="md">{nombre}</Heading>
                 <Text color="blue.800" fontSize="l">
                   Categoria: {categoria}
                 </Text>
-                <Text color="red.600" fontSize="xl">
+                <Text color="red.400" fontSize="xl">
                   stock: {stock}
                 </Text>
-                <Text color="red.600" fontSize="xl">
+                <Text color="green.600" fontSize="xl">
                   Desc: {desc}
                 </Text>
               </Stack>
@@ -45,9 +47,10 @@ const Item = ({ id, nombre, desc, precio, img, categoria, stock }) => {
               </Center>
             </CardFooter>
           </Card>
-        </Center>
+        
       </div>
     </div>
+    </ChakraProvider>
   );
 };
 
