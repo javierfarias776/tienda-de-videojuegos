@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 
 
 
-const Item = ({ id, nombre, desc, precio, img, categoria, stock }) => {
+const Item = () => {
   return (
     <ChakraProvider>
 
@@ -24,17 +24,17 @@ const Item = ({ id, nombre, desc, precio, img, categoria, stock }) => {
         
           <Card maxW="xs">
             <CardBody>
-              <Image borderRadius="lg" src={"../" + img}/>
+              <Image borderRadius="lg" src={product.img}/>
               <Stack mt="6" spacing="3">
-                <Heading size="md">{nombre}</Heading>
+                <Heading size="md">{product.nombre}</Heading>
                 <Text color="blue.800" fontSize="l">
-                  Categoria: {categoria}
+                  Categoria: {product.categoria}
                 </Text>
                 <Text color="red.400" fontSize="xl">
-                  stock: {stock}
+                  stock: {product.stock}
                 </Text>
                 <Text color="green.600" fontSize="xl">
-                  Desc: {desc}
+                  Desc: {product.desc}
                 </Text>
               </Stack>
             </CardBody>
@@ -42,7 +42,7 @@ const Item = ({ id, nombre, desc, precio, img, categoria, stock }) => {
             <CardFooter className="card-footer">
               <Center className="btn-center">
                 <Button>
-                  <Link to={`/item/${id}`}>Detalles</Link>
+                  <Link to={`/item/${product.id}`}>Detalles</Link>
                 </Button>
               </Center>
             </CardFooter>

@@ -2,11 +2,26 @@ import { ChakraProvider, Card, CardBody, Image, Stack, Heading, Text, Divider, C
    import{useContext} from "react"
    import { CounterContext } from '../context/StateComponents';
   import { useParams } from "react-router-dom";
-  import React from "react";
-  import productos from '../data.json';
+  import {useState,useEffect} from "react";
+  import { doc, getDoc, getFirestore} from "firebase/firestore"
+  
+
 
   
   const ItemDetail = () => {
+    const [product, setProduct]= useState([]);
+    useEffect(()=>{
+      const db= getFirestore();
+      const oneItem= doc(db,"juegos")
+      getDoc(oneItem).then((snapshot)=>{
+        if(snapshot.exists()){
+          const docs =snapshot.data();
+          console.log(docs);
+          setProduct(docs);
+        }
+      },[])
+    });
+  
     const{ increment, decrement, reset, counter } = useContext(CounterContext);
     const { id } = useParams();
     

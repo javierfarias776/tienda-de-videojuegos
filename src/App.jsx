@@ -9,6 +9,7 @@ import Cart from './components/Cart'
 import StateComponents from './context/StateComponents'
 
 
+
 const App = () => {
  
   return (
@@ -18,12 +19,14 @@ const App = () => {
 
     <BrowserRouter>
         <NavBar/>
+      
           <Routes>
             <Route exact path ="/" element= {<Inicio />}/>
             <Route exact path ="/catalogo" element={<ItemListContainer />}/>
             <Route exact path ="/categoria/:categoria" element={<ItemListContainer />}/>
             <Route exact path ="/item/:id" element={<ItemDetail />}/>
             <Route exact path ="/cart" element={<Cart />}/>
+
           </Routes>
         <Footer/>
     </BrowserRouter>

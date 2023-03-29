@@ -1,19 +1,30 @@
 import React,{useState, useEffect} from 'react'
 import ItemList from "./ItemList";
-import Data from "../data.json"
 import { useParams } from 'react-router-dom';
+import { collection, getDocs, getFirestore} from "firebase/firestore"
 
 
 const ItemListContainer = () => {
-  const [game, setGame] = useState([]);
+  const [game, setGame, products, setProducts] = useState([]);
+
+  useEffect(()=>{
+    const db = getFirestore();
+
+    const itemsCollection = collection(db, "juegos");
+    getDocs(itemsCollection).then((snapshot)=>{
+        const docs= snapshot.docs.map((doc) => doc.data());
+        
+        setProducts(docs);
+    });
+}, []);
   
   useEffect(() => {
     const getData = new Promise ((resolve, reject)=> {
-        if (Data.length ===0){
+        if (products.length ===0){
           reject (new Error("NO hay datos"));
         }
         setTimeout(()=>{
-          resolve (Data);
+          resolve (products);
         }, 1000);
       });
 
@@ -28,11 +39,12 @@ const ItemListContainer = () => {
   
     const { categoria } = useParams();
     
-    const catFilter = Data.filter((data) => data.categoria.toLowerCase() === categoria);
+    const catFilter = products.filter((product) => product.categoria.toLowerCase() === categoria);
     
     return (
+    
       <div>  
-        {categoria ? <ItemList game={catFilter}/> : <ItemList game={Data}/>}
+        {categoria ? <ItemList game={catFilter}/> : <ItemList game={products}/>}
       </div>
   )
 }
