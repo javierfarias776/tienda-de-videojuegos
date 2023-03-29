@@ -5,7 +5,7 @@ import ItemListContainer from './components/ItemListContainer'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import ItemDetail from './components/ItemDetail'
-import Cart from './components/Cart'
+import Form from './components/Form'
 import StateComponents from './context/StateComponents'
 
 
@@ -25,7 +25,7 @@ const App = () => {
             <Route exact path ="/catalogo" element={<ItemListContainer />}/>
             <Route exact path ="/categoria/:categoria" element={<ItemListContainer />}/>
             <Route exact path ="/item/:id" element={<ItemDetail />}/>
-            <Route exact path ="/cart" element={<Cart />}/>
+            <Route exact path ="/form" element={<Form />}/>
 
           </Routes>
         <Footer/>

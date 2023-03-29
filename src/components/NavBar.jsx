@@ -34,7 +34,7 @@ const NavBar = () => {
     </div>
     <button type="button" className="btn btn-outline-dark">
 
-          <Link className="nav-link" to="/cart">
+          <Link className="nav-link" to="/form">
             <CartWidget/>
           </Link>
     </button>
