@@ -5,7 +5,7 @@ import { collection, getDocs, getFirestore} from "firebase/firestore"
 
 
 const ItemListContainer = () => {
-  const [game, setGame, products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(()=>{
     const db = getFirestore();
@@ -18,25 +18,6 @@ const ItemListContainer = () => {
     });
 }, []);
   
-  useEffect(() => {
-    const getData = new Promise ((resolve, reject)=> {
-        if (products.length ===0){
-          reject (new Error("NO hay datos"));
-        }
-        setTimeout(()=>{
-          resolve (products);
-        }, 1000);
-      });
-
-  const gamesData= getData.then((response) => {
-    setGame(response)
-    console.log(Data);
-    
-  })
-  
-  }, []);
-
-  
     const { categoria } = useParams();
     
     const catFilter = products.filter((product) => product.categoria.toLowerCase() === categoria);
@@ -44,7 +25,7 @@ const ItemListContainer = () => {
     return (
     
       <div>  
-        {categoria ? <ItemList game={catFilter}/> : <ItemList game={products}/>}
+        {categoria ? <ItemList productos={catFilter}/> : <ItemList productos={products}/>}
       </div>
   )
 }

@@ -25,7 +25,8 @@ import { ChakraProvider, Card, CardBody, Image, Stack, Heading, Text, Divider, C
     const{ increment, decrement, reset, counter } = useContext(CounterContext);
     const { id } = useParams();
     
-    const producto = productos.find(juego => juego.id === parseInt(id));
+    const producto = products.find(juego =>
+       juego.id === parseInt(id));
   
 
     return (
