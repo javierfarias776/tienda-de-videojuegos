@@ -1,88 +1,111 @@
-import { ChakraProvider, Card, CardBody, Image, Stack, Heading, Text, Divider, CardFooter, ButtonGroup, Button, Center } from '@chakra-ui/react'
-   import{useContext} from "react"
-   import { CounterContext } from '../context/StateComponents';
-  import { useParams } from "react-router-dom";
-  import {useState,useEffect} from "react";
-  import { doc, getDoc, getFirestore} from "firebase/firestore"
-  
+import {
+  ChakraProvider,
+  Card,
+  CardBody,
+  Image,
+  Stack,
+  Heading,
+  Text,
+  Divider,
+  CardFooter,
+  ButtonGroup,
+  Button,
+  Center,
+} from "@chakra-ui/react";
+import { useContext } from "react";
+import { CounterContext } from "../context/StateComponents";
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { collection, doc, getDoc, getFirestore } from "firebase/firestore";
 
+const ItemDetail = () => {
+  const [products, setProducts] = useState([]);
+  const { nameId } = useParams();
 
-  
-  const ItemDetail = () => {
-    const [product, setProduct]= useState([]);
-    useEffect(()=>{
-      const db= getFirestore();
-      const oneItem= doc(db,"juegos")
-      getDoc(oneItem).then((snapshot)=>{
-        if(snapshot.exists()){
-          const docs =snapshot.data();
-          console.log(docs);
-          setProduct(docs);
-        }
-      },[])
+  useEffect(() => {
+    const db = getFirestore();
+    const juegosCollection = collection(db, "juegos");
+    const oneItem = juegosCollection.doc(nameId)
+
+    getDoc(oneItem).then((snapshot) => {
+      if (snapshot.exists()) {
+        const docs = snapshot.data();
+        debugger;
+        console.log(docs);
+        setProducts(docs);
+      }
     });
-  
-    const{ increment, decrement, reset, counter } = useContext(CounterContext);
-    const { id } = useParams();
-    
-    const producto = productos.find(juego => juego.id === parseInt(id));
-  
+  }, []);
 
-    return (
-      <ChakraProvider>
+  const { increment, decrement, reset, counter } = useContext(CounterContext);
+  const { id } = useParams();
 
-        
-          <Center>
+  const producto = products.find((juego) => {
+    const nombreId = juego.id.replaceAll(" ", "_").toLowerCase();
+    if (nombreId === id) {
+      console.log(juego);
+      return juego
+    };
+  });
 
-            <Card maxW="sm">
-              <CardBody>
-                <Image borderRadius='lg' src={"../" + producto.img} />
-                <Stack mt='6' spacing='3'>
-                  <Heading size='md'>{producto.nombre}</Heading>
-                  <Text color="blue.800" fontSize="l">
-                    Desc: {producto.desc}
-                  </Text>
-                  <Text color="blue.800" fontSize="l">
-                    Categoria: {producto.categoria}
-                  </Text>
-                  <Text color="red.600" fontSize="xl">
-                    Stock: {producto.stock}
-                  </Text>
-                  <Text color="green.600" fontSize="2xl">
-                    Precio: U$D {producto.precio}
-                  </Text>
-                </Stack>
-              </CardBody>
-              <Divider />
-                  <CardFooter>
+  return (
+    <h1></h1>
+    // <ChakraProvider>
+    //   <Center>
+    //     <Card maxW="sm">
+    //       <CardBody>
+    //         <Image borderRadius="lg" src={"../" + producto.img} />
+    //         <Stack mt="6" spacing="3">
+    //           <Heading size="md">{producto.nombre}</Heading>
+    //           <Text color="blue.800" fontSize="l">
+    //             Desc: {producto.desc}
+    //           </Text>
+    //           <Text color="blue.800" fontSize="l">
+    //             Categoria: {producto.categoria}
+    //           </Text>
+    //           <Text color="red.600" fontSize="xl">
+    //             Stock: {producto.stock}
+    //           </Text>
+    //           <Text color="green.600" fontSize="2xl">
+    //             Precio: U$D {producto.precio}
+    //           </Text>
+    //         </Stack>
+    //       </CardBody>
+    //       <Divider />
+    //       <CardFooter>
+    //         <ButtonGroup spacing="19.5">
+    //           <Button
+    //             onClick={() => decrement()}
+    //             variant="solid"
+    //             colorScheme="blue"
+    //           >
+    //             -
+    //           </Button>
 
-                    <ButtonGroup spacing='19.5'>
-                      <Button onClick={() => decrement()} variant='solid' colorScheme='blue'>
-                        -
-                      </Button>
-                    
-                      <Button  variant='ghost' colorScheme='blue'>
-                        Add to cart + {counter}
-                      </Button>
-                    
-                      <Button onClick={() => increment()} variant='solid' colorScheme='blue'>
-                        +
-                      </Button>
-                      <Button onClick={() => reset()} variant='solid' colorScheme='blue'>
-                        Reset
-                      </Button>
-                    </ButtonGroup>
-                  </CardFooter>
-              
-              
-            </Card>
-          </Center>
-          
-        
-            </ChakraProvider>
-      
-    );
-    
-  }
-  
-  export default ItemDetail;
+    //           <Button variant="ghost" colorScheme="blue">
+    //             Add to cart + {counter}
+    //           </Button>
+
+    //           <Button
+    //             onClick={() => increment()}
+    //             variant="solid"
+    //             colorScheme="blue"
+    //           >
+    //             +
+    //           </Button>
+    //           <Button
+    //             onClick={() => reset()}
+    //             variant="solid"
+    //             colorScheme="blue"
+    //           >
+    //             Reset
+    //           </Button>
+    //         </ButtonGroup>
+    //       </CardFooter>
+    //     </Card>
+    //   </Center>
+    // </ChakraProvider>
+  );
+};
+
+export default ItemDetail;
