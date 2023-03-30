@@ -20,25 +20,24 @@ import { collection, doc, getDoc, getFirestore } from "firebase/firestore";
 
 const ItemDetail = () => {
   const [products, setProducts] = useState([]);
-  const { nameId } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     const db = getFirestore();
-    const juegosCollection = collection(db, "juegos");
-    const oneItem = juegosCollection.doc(nameId)
+    const oneItem = doc(db, "juegos", `${id}`)
 
     getDoc(oneItem).then((snapshot) => {
       if (snapshot.exists()) {
         const docs = snapshot.data();
         debugger;
         console.log(docs);
-        setProducts(docs);
+        setProducts({ id: snapshot.id, ...snapshot.data() });
       }
     });
   }, []);
 
   const { increment, decrement, reset, counter } = useContext(CounterContext);
-  const { id } = useParams();
+  // const { id } = useParams();
 
   const producto = products.find((juego) => {
     const nombreId = juego.id.replaceAll(" ", "_").toLowerCase();

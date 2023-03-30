@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 
 
 const Item = ({ key, nombre, desc, precio, img, categoria, stock }) => {
-  const name = nombre.replaceAll(' ', '_').toLowerCase();
+  const id = nombre.replaceAll(' ', '_').toLowerCase();
   console.log(name);
   return (
     <ChakraProvider>
@@ -44,7 +44,7 @@ const Item = ({ key, nombre, desc, precio, img, categoria, stock }) => {
             <CardFooter className="card-footer">
               <Center className="btn-center">
                 <Button>
-                  <Link to={`/item/${name}`}>Detalles</Link>
+                  <Link to={`/item/${id}`}>Detalles</Link>
                 </Button>
               </Center>
             </CardFooter>
