@@ -15,12 +15,13 @@ import { Link } from "react-router-dom";
 
 
 
-const Item = (key, nombre, desc, precio, img, categoria, stock ) => {
+const Item = (id, nombre, desc, img, categoria, stock ) => {
   return (
     <ChakraProvider>
 
     <div>
-      <div key={key}>
+      <div key={id}>
+
         
           <Card maxW="xs">
             <CardBody>
@@ -42,7 +43,7 @@ const Item = (key, nombre, desc, precio, img, categoria, stock ) => {
             <CardFooter className="card-footer">
               <Center className="btn-center">
                 <Button>
-                  <Link to={`/item/${nombre}`}>Detalles</Link>
+                  <Link to={`/item/${id}`}>Detalles</Link>
                 </Button>
               </Center>
             </CardFooter>

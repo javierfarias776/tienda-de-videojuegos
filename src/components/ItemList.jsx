@@ -1,7 +1,11 @@
 import Item from "./Item";
 import { Container } from "@chakra-ui/react";
 
-const ItemList = ({productos}) => {
+const ItemList = ({ productos }) => {
+  console.log('ItemList: ', productos);
+  productos?.map((product) => {
+    console.log("🚀 ~ product: ", product)    
+  })
   
   return (
   <div>
@@ -9,7 +13,6 @@ const ItemList = ({productos}) => {
         {productos?.map((product) => (
           <Item
             key={product.nombre}
-            id={product.nombre}
             nombre={product.nombre}
             desc={product.desc}
             precio={product.precio}

@@ -1,34 +1,34 @@
-import React,{useState, useEffect} from 'react'
+import React, { useState, useEffect } from "react";
 import ItemList from "./ItemList";
-import { useParams } from 'react-router-dom';
-import { collection, getDocs, getFirestore} from "firebase/firestore"
-
+import { useParams } from "react-router-dom";
+import { collection, getDocs, getFirestore, doc } from "firebase/firestore";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
 
-  useEffect(()=>{
+  useEffect(() => {
     const db = getFirestore();
 
     const itemsCollection = collection(db, "juegos");
-    getDocs(itemsCollection).then((snapshot)=>{
-        const docs= snapshot.docs.map((doc) => doc.data());
-        
-        setProducts(docs);
+
+    getDocs(itemsCollection).then((snapshot) => {
+      const docs = snapshot.docs.map((doc) => doc.data(), doc.id);
+      
+      setProducts(docs);
     });
-}, []);
+  }, []);
+
+  const { categoria } = useParams();
   
-    const { categoria } = useParams();
-    
-    const catFilter = products.filter((product) => product.categoria.toLowerCase() === categoria);
-    
-    return (
-    
-      <div>  
-        {categoria ? <ItemList productos={catFilter}/> : <ItemList productos={products}/>}
-      </div>
-  )
-}
+  const catFilter = products.filter(
+    (product) => product.categoria.toLowerCase() === categoria
+  );
 
+  return (
+    <div>
+      {categoria ? <ItemList productos={catFilter} /> : <ItemList productos={products} />}
+    </div>
+  );
+};
 
-export default ItemListContainer
+export default ItemListContainer;
