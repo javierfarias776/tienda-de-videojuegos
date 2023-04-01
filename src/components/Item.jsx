@@ -15,14 +15,12 @@ import { Link } from "react-router-dom";
 
 
 
-const Item = ({ key, nombre, desc, precio, img, categoria, stock }) => {
-  const id = nombre.replaceAll(' ', '_').toLowerCase();
-  console.log(name);
+const Item = ({ id, nombre, desc, precio, img, categoria, stock }) => {
   return (
     <ChakraProvider>
 
     <div>
-      <div key={ key }>
+      <div>
         
           <Card maxW="xs">
             <CardBody>

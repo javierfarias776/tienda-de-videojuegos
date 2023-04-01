@@ -11,7 +11,14 @@ const ItemListContainer = () => {
     const itemsCollection = collection(db, "juegos");
 
     getDocs(itemsCollection).then((snapshot) => {
-      const docs = snapshot.docs.map((doc) => doc.data(), doc.id);
+      const docs = snapshot.docs.map((doc) => {
+        // console.log(doc.data());
+        // console.log("ID Documento", doc.id);
+        const docConID = { id: doc.id, ...doc.data() };
+        // console.log(docConID);
+        return docConID;
+      });
+      console.log(docs);
       
       setProducts(docs);
     });
