@@ -87,38 +87,31 @@ function Cart() {
                       <Text color="blue.800" fontSize="l">
                         Cantidad: {item.cantidad}
                       </Text>
-                      <Text color="blue.800" fontSize="l">
-                        Categoria: {item.categoria}
-                      </Text>
-                      <Text color="red.600" fontSize="xl">
-                        Stock: {item.stock}
-                      </Text>
                       <Text color="green.600" fontSize="2xl">
                         Precio: U$D {item.precio}
+                      </Text>
+                      <Text color="blue.800" fontSize="l">
+                      <span>Precio total:</span>
                       </Text>
                     </Stack>
                   </CardBody>
                   <Divider />
                   <CardFooter>
                     <ButtonGroup spacing="19.5">
-                      <Button
-                        onClick={() => decrement()}
+                    <Button
+                        onClick={() => comprar()}
                         variant="solid"
                         colorScheme="blue"
                       >
-                        -
+                        Comprar
                       </Button>
-        
-                      <Button variant="ghost" colorScheme="blue">
-                        Add to cart + {item.cantidad}
-                      </Button>
-        
+                     
                       <Button
-                        onClick={() => increment(item.stock)}
+                        onClick={() => eliminarProducto()}
                         variant="solid"
                         colorScheme="blue"
                       >
-                        +
+                        Delete
                       </Button>
                     </ButtonGroup>
                   </CardFooter>
