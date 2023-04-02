@@ -12,10 +12,9 @@ import {
   Button,
   Center,
 } from "@chakra-ui/react";
-import { useContext } from "react";
 import { CounterContext } from "../context/StateComponents";
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { collection, doc, getDoc, getFirestore } from "firebase/firestore";
 
 const ItemDetail = () => {
@@ -29,21 +28,19 @@ const ItemDetail = () => {
     getDoc(oneItem).then((snapshot) => {
       if (snapshot.exists()) {
         const doc = snapshot.data();
-        // debugger;
-        console.log(doc);
         setProduct({ id: id, ...doc });
       }
     });
   }, []);
 
-  const { increment, decrement, reset, counter } = useContext(CounterContext);
+  const { increment, decrement, addToCart, counter } = useContext(CounterContext);
 
   return (
     <ChakraProvider>
       <Center>
         <Card maxW="sm">
           <CardBody>
-            <Image borderRadius="lg" src={"../" + product.img} />
+            <Image borderRadius="lg" src={product.img} />
             <Stack mt="6" spacing="3">
               <Heading size="md">{product.nombre}</Heading>
               <Text color="blue.800" fontSize="l">
@@ -76,18 +73,18 @@ const ItemDetail = () => {
               </Button>
 
               <Button
-                onClick={() => increment()}
+                onClick={() => increment(product.stock)}
                 variant="solid"
                 colorScheme="blue"
               >
                 +
               </Button>
               <Button
-                onClick={() => reset()}
+                onClick={() => addToCart(product, counter)}
                 variant="solid"
                 colorScheme="blue"
               >
-                Reset
+                Add
               </Button>
             </ButtonGroup>
           </CardFooter>
