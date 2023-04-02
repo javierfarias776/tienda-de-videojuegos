@@ -15,16 +15,20 @@ import {
 import { CounterContext } from "../context/StateComponents";
 import { useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
-import { collection, doc, getDoc, getFirestore } from "firebase/firestore";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
+import { useNavigate } from 'react-router-dom'
 
 const ItemDetail = () => {
   const [product, setProduct] = useState([]);
   const { id } = useParams();
+  const navigate = useNavigate();
 
+  const { increment, decrement, addToCart, counter } = useContext(CounterContext);
+  
   useEffect(() => {
     const db = getFirestore();
-    const oneItem = doc(db, "juegos", `${id}`)
-
+    const oneItem = doc(db, "juegos", `${id}`);
+    
     getDoc(oneItem).then((snapshot) => {
       if (snapshot.exists()) {
         const doc = snapshot.data();
@@ -33,7 +37,12 @@ const ItemDetail = () => {
     });
   }, []);
 
-  const { increment, decrement, addToCart, counter } = useContext(CounterContext);
+  const handleClickAdd = () => {
+    if (counter > 0) {
+      addToCart(product.id);
+      navigate('/cart');
+    }
+  }
 
   return (
     <ChakraProvider>
@@ -80,7 +89,7 @@ const ItemDetail = () => {
                 +
               </Button>
               <Button
-                onClick={() => addToCart(product, counter)}
+                onClick={() => handleClickAdd()}
                 variant="solid"
                 colorScheme="blue"
               >

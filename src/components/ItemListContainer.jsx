@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
-import { collection, getDocs, getFirestore, doc } from "firebase/firestore";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
@@ -13,14 +13,9 @@ const ItemListContainer = () => {
 
     getDocs(itemsCollection).then((snapshot) => {
       const docs = snapshot.docs.map((doc) => {
-        // console.log(doc.data());
-        // console.log("ID Documento", doc.id);
         const docConID = { id: doc.id, ...doc.data() };
-        // console.log(docConID);
         return docConID;
-      });
-      console.log(docs);
-      
+      });      
       setProducts(docs);
     });
   }, []);
